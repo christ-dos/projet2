@@ -1,1 +1,1 @@
-# projet2_Openclassrooms
+# projet2_openclassrooms
