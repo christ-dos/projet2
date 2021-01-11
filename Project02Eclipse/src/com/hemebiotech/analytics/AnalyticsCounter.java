@@ -1,14 +1,15 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headCount = 0; // initialize to 0
-	private static int rashCount = 0; // initialize to 0
-	private static int pupilCount = 0; // initialize to 0
+	/*
+	 * private static int headCount = 0; // initialize to 0 private static int
+	 * rashCount = 0; // initialize to 0 private static int pupilCount = 0; //
+	 * initialize to 0
+	 */
 
 	public static void main(String args[]) throws Exception {
 
@@ -23,6 +24,14 @@ public class AnalyticsCounter {
 
 		mySymptomList = getSymptoms.GetSymptoms();
 
+		/** copySymptoms is a instance of the class CopySymptomsToMap. */
+
+		CopySymptomsToMap copySymptoms = new CopySymptomsToMap();
+
+		/** call method copySymptoms of class CopySymptomsToMap */
+
+		symptomsMap = copySymptoms.copyToMap(mySymptomList);
+
 		/** writeSymptoms is a instance of the class WriteToFileResultOut. */
 
 		WriteToFileResultOut writeSymptoms = new WriteToFileResultOut(symptomsMap, "result.out");
@@ -31,12 +40,6 @@ public class AnalyticsCounter {
 
 		writeSymptoms.copyToFile(symptomsMap);
 
-		System.out.println(mySymptomList);
-		// next generate output
-		FileWriter writer = new FileWriter("result.out");
-		writer.write("headache: " + headCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		System.out.println(symptomsMap);
 	}
 }
