@@ -15,6 +15,16 @@ import java.util.TreeMap;
 
 public class CopySymptomsToMap {
 
+	private List<String> mySymptomList;
+
+	/**
+	 * 
+	 * @param mySymptomList
+	 */
+	public CopySymptomsToMap(List<String> mySymptomList) {
+		this.mySymptomList = mySymptomList;
+	}
+
 	/**
 	 * Method that copy the symptoms to a TreeMap.
 	 * 
@@ -22,22 +32,34 @@ public class CopySymptomsToMap {
 	 * update the values of the keys present in the TreeMap with a Lambda function
 	 * sum.
 	 * 
-	 * @param myArrayList a List passed to the method that may contain many
-	 *                    duplication.
+	 * @param mySymptomList a List passed to the method that may contain many
+	 *                      duplication.
 	 * 
 	 * @return a TreeMap with symptoms sort in alphabetic order with the occurrences
 	 *         of them.
 	 */
 
-	public TreeMap<String, Integer> copyToMap(List<String> myArrayList) {
+	public TreeMap<String, Integer> copyToMap() {
 
 		TreeMap<String, Integer> symptomsMap = new TreeMap<String, Integer>();
 
-		for (String key : myArrayList) {
+		mySymptomList.stream().forEach(symptoms -> {
+			symptomsMap.putIfAbsent(symptoms, 0);
+			symptomsMap.computeIfPresent(symptoms, (key, valeur) -> valeur + 1);
+		});
 
-			symptomsMap.merge(key, 1, Integer::sum);
-
-		}
+		/*
+		 * List<String> symptoms = mySymptomList.stream().collect(toList());
+		 * 
+		 * System.out.println(symptoms);
+		 */
+		/*
+		 * for (String key : mySymptomList) {
+		 * 
+		 * symptomsMap.merge(key, 1, Integer::sum);
+		 * 
+		 * }
+		 */
 
 		return symptomsMap;
 

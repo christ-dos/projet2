@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -16,6 +15,7 @@ import java.util.TreeMap;
 
 public class WriteToFileResultOut {
 	private String filepath;
+	private TreeMap<String, Integer> symptomsMap;
 
 	/**
 	 * Constructor of WriteToFileResultOut
@@ -29,39 +29,41 @@ public class WriteToFileResultOut {
 	public WriteToFileResultOut(TreeMap<String, Integer> symptomsMap, String filepath) {
 
 		this.filepath = filepath;
+		this.symptomsMap = symptomsMap;
 	}
 
 	/**
 	 * method that write to the file result.out.
 	 * 
-	 * @param symptomCopieToMap a TreeMap that contain the symptoms and occurrences
-	 *                          of them.
+	 * @param symptomsMap a TreeMap that contain the symptoms and occurrences of
+	 *                    them.
 	 * 
 	 * @throws IOException if the file does not write well in the file.
 	 *
 	 * @return symptomCopieToMap a Map with the resume of symptoms.
 	 */
 
-	public TreeMap<String, Integer> copyToFile(TreeMap<String, Integer> symptomCopieToMap) throws IOException {
+	public void copyToFile() {
 
-		FileWriter writer = new FileWriter((filepath));
+		try (FileWriter writer = new FileWriter((filepath))) {
+			symptomsMap.forEach((k, v) -> {
+				try {
+					writer.write(k + " = " + v + "\n");
+				} catch (IOException e) {
 
-		try {
-
-			for (Map.Entry<String, Integer> entry : symptomCopieToMap.entrySet()) {
-				String key = entry.getKey();
-				Integer value = entry.getValue();
-				writer.write(key + " = " + value + "\n");
-			}
-
+					e.printStackTrace();
+				}
+			});
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 
-		writer.close();
-
-		return symptomCopieToMap;
+		// return symptomsMap;
 	}
+
+	// public TreeMap<String, Integer> getSymptomsMap() {
+	// return this.symptomsMap;
+	// }
 
 }

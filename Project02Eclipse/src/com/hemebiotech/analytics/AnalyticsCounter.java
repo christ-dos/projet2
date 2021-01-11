@@ -11,7 +11,7 @@ public class AnalyticsCounter {
 	 * initialize to 0
 	 */
 
-	public static void main(String args[]) throws Exception {
+	public static void main(String args[]) {
 
 		List<String> mySymptomList = new ArrayList<String>();
 		TreeMap<String, Integer> symptomsMap = new TreeMap<String, Integer>();
@@ -26,11 +26,11 @@ public class AnalyticsCounter {
 
 		/** copySymptoms is a instance of the class CopySymptomsToMap. */
 
-		CopySymptomsToMap copySymptoms = new CopySymptomsToMap();
+		CopySymptomsToMap copySymptoms = new CopySymptomsToMap(mySymptomList);
 
 		/** call method copySymptoms of class CopySymptomsToMap */
 
-		symptomsMap = copySymptoms.copyToMap(mySymptomList);
+		symptomsMap = copySymptoms.copyToMap();
 
 		/** writeSymptoms is a instance of the class WriteToFileResultOut. */
 
@@ -38,7 +38,7 @@ public class AnalyticsCounter {
 
 		/* call method copyToFile of class WriteFileResultOut */
 
-		writeSymptoms.copyToFile(symptomsMap);
+		writeSymptoms.copyToFile();
 
 		System.out.println(symptomsMap);
 	}

@@ -28,15 +28,19 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		ArrayList<String> result = new ArrayList<String>();
 
 		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader(new FileReader(filepath));
+			try (BufferedReader reader = new BufferedReader(new FileReader(filepath));) {
+
 				String line = reader.readLine();
 
 				while (line != null) {
+					/** toLowerCase() method that convert the variable line to lower case. */
+					String lineLower = line.toLowerCase();
+					line = null;
+					line = lineLower;
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
