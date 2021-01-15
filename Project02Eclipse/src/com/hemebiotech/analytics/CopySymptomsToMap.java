@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * 
  */
 
-public class CopySymptomsToMap {
+public class CopySymptomsToMap implements ICopyToMap {
 
 	private List<String> mySymptomList;
 
@@ -39,6 +39,7 @@ public class CopySymptomsToMap {
 	 *         of them.
 	 */
 
+	@Override
 	public TreeMap<String, Integer> copyToMap() {
 
 		TreeMap<String, Integer> symptomsMap = new TreeMap<String, Integer>();

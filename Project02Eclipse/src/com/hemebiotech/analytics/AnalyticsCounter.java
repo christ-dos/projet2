@@ -18,7 +18,7 @@ public class AnalyticsCounter {
 
 		/** getSymptoms is a instance of the class ReadSymptomDataFromFile. */
 
-		ReadSymptomDataFromFile getSymptoms = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
+		ISymptomReader getSymptoms = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 
 		/** call method GetSymptoms of Class ReadSymptomDataFromFile */
 
@@ -26,7 +26,7 @@ public class AnalyticsCounter {
 
 		/** copySymptoms is a instance of the class CopySymptomsToMap. */
 
-		CopySymptomsToMap copySymptoms = new CopySymptomsToMap(mySymptomList);
+		ICopyToMap copySymptoms = new CopySymptomsToMap(mySymptomList);
 
 		/** call method copySymptoms of class CopySymptomsToMap */
 
@@ -34,7 +34,7 @@ public class AnalyticsCounter {
 
 		/** writeSymptoms is a instance of the class WriteToFileResultOut. */
 
-		WriteToFileResultOut writeSymptoms = new WriteToFileResultOut(symptomsMap, "result.out");
+		IWriteToFile writeSymptoms = new WriteToFileResultOut(symptomsMap, "result.out");
 
 		/* call method copyToFile of class WriteFileResultOut */
 

@@ -13,7 +13,7 @@ import java.util.TreeMap;
  * 
  */
 
-public class WriteToFileResultOut {
+public class WriteToFileResultOut implements IWriteToFile {
 	private String filepath;
 	private TreeMap<String, Integer> symptomsMap;
 
@@ -43,6 +43,7 @@ public class WriteToFileResultOut {
 	 * @return symptomCopieToMap a Map with the resume of symptoms.
 	 */
 
+	@Override
 	public void copyToFile() {
 
 		try (FileWriter writer = new FileWriter((filepath))) {
@@ -59,11 +60,6 @@ public class WriteToFileResultOut {
 			e.printStackTrace();
 		}
 
-		// return symptomsMap;
 	}
-
-	// public TreeMap<String, Integer> getSymptomsMap() {
-	// return this.symptomsMap;
-	// }
 
 }
