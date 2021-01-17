@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package services;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,20 +15,28 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	private String filepath;
 
 	/**
+	 * Constructor
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it,
-	 *                 one per line
+	 * @param filepath the path that contain the file.
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
+
 		this.filepath = filepath;
 	}
 
+	/**
+	 * Method that read the symptoms to a file.
+	 * 
+	 * @param filepath the path that contain the file.
+	 * 
+	 * @throws IOException
+	 */
 	@Override
 	public List<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 
 		if (filepath != null) {
-			try (BufferedReader reader = new BufferedReader(new FileReader(filepath));) {
+			try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
 
 				String line = reader.readLine();
 
