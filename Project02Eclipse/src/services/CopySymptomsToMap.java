@@ -23,6 +23,7 @@ public class CopySymptomsToMap implements ICopyToMap {
 	 * 
 	 * @return a TreeMap with symptoms sort in alphabetic order with the occurrences
 	 *         of them.
+	 * 
 	 */
 
 	@Override

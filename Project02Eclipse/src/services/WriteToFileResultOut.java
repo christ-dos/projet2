@@ -44,7 +44,7 @@ public class WriteToFileResultOut implements IWriteToFile {
 			try (FileWriter writer = new FileWriter((filepath))) {
 				symptomsMap.forEach((k, v) -> {
 					try {
-						writer.write(k + " == " + v + "\n");
+						writer.write(k + " = " + v + "\n");
 					} catch (IOException e) {
 
 						e.printStackTrace();
