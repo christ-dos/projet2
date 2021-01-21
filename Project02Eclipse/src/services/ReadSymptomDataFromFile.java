@@ -8,16 +8,30 @@ import java.util.List;
 
 /**
  * Simple brute force implementation
+ * 
+ * @see ISymptomReader
+ * 
+ * @author Christine Dos Santos Duarte
+ * 
+ * @version 0.1.0
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
+	/**
+	 * This attribute is a full or partial path that permit to find the file that
+	 * contain the listing of symptoms.
+	 * 
+	 * @see ReadSymptomDataFromFile#GetSymptoms()
+	 * 
+	 */
 	private String filepath;
 
 	/**
 	 * Constructor
 	 * 
-	 * @param filepath the path that contain the file.
+	 * @param filepath a full or partial path to read the file with the symptoms.
+	 * 
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
 
@@ -25,15 +39,23 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 
 	/**
-	 * Method that read the symptoms to a file.
+	 * Method that read the symptoms from a file.
 	 * 
-	 * @param filepath the path that contain the file.
+	 * Implementation a <code>try-catch</code> to catch a possible IOException if
+	 * the resources not correctly closed
+	 *
+	 * Implementation of the method toLowerCase() that convert the variable line to
+	 * lower case.
 	 * 
-	 * @throws IOException
+	 * @see String#toLowerCase()
+	 * 
+	 * @return an ArrayList that contain the symptoms which have been read from
+	 *         file.
+	 * 
 	 */
 	@Override
 	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<String> result = new ArrayList<>();
 
 		if (filepath != null) {
 			try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
@@ -41,7 +63,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				String line = reader.readLine();
 
 				while (line != null) {
-					/** toLowerCase() method that convert the variable line to lower case. */
+
 					String lineLower = line.toLowerCase();
 					line = null;
 					line = lineLower;

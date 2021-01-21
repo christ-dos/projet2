@@ -5,19 +5,30 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 /**
- * Class that write to a file. And that implement IWriteToFile Interface.
+ * Class that write to a file.
+ * 
+ * And that implement IWriteToFile Interface.
+ * 
+ * @see IWriteToFile
  * 
  * @author Christine Dos Santos Duarte
  * 
+ * @version 0.1.0
+ * 
+ *
  */
 public class WriteToFileResultOut implements IWriteToFile {
 
+	/**
+	 * A String that contain full or partial path.
+	 * 
+	 */
 	private String filepath;
 
 	/**
-	 * Constructor of WriteToFileResultOut
+	 * Constructor of WriteToFileResultOut.
 	 * 
-	 * @param filepath a full or partial path to the file to write the results
+	 * @param filepath A full or partial path to a file to write the results.
 	 * 
 	 */
 	public WriteToFileResultOut(String filepath) {
@@ -26,15 +37,16 @@ public class WriteToFileResultOut implements IWriteToFile {
 	}
 
 	/**
-	 * method that write to a file .
+	 * Method that write to a file .
 	 * 
-	 * @param symptomsMap a TreeMap that contain the symptoms and occurrences of
+	 * Implementation a <code>try-catch</code> to catch a possible IOException if
+	 * the resources not correctly closed.
+	 * 
+	 * @param symptomsMap A TreeMap that contain the symptoms and occurrences of
 	 *                    them.
-	 * @param filepath    a full or partial path to the file to write the results
 	 * 
-	 * @throws IOException.
-	 *
 	 * @return a Map with the results of symptoms.
+	 * 
 	 */
 
 	@Override

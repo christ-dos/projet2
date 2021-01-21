@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.TreeMap;
 
 /**
+ * Anything that will copy to a TreeMap symptom data from a source .
  * 
  * @author Christine Dos Santos Duarte
- *
+ * 
+ * @version 0.1.0
+ * 
  */
-
 public interface ICopyToMap {
 
 	/**
@@ -17,7 +19,9 @@ public interface ICopyToMap {
 	 * The important part is, the return value from the operation, which is a
 	 * TreeMap with a String Key and an Integer value.
 	 * 
-	 * @return The elements copied in order
+	 * @param mySymptomList an ArrayList that contain the symptoms
+	 * 
+	 * @return The elements copied in alphabetic order.
 	 * 
 	 */
 	TreeMap<String, Integer> copyToMap(List<String> mySymptomList);

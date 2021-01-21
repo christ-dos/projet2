@@ -9,18 +9,36 @@ import services.ReadSymptomDataFromFile;
 import services.WriteToFileResultOut;
 
 /**
- * Class that manage the requests.
+ * Class that manage the requests to the classes of services.
+ * 
+ * that class implement an Interface IAnalyticsController
+ * 
+ * @see IAnalyticsController
  * 
  * @author Christine Dos Santos Duarte
- *
+ * 
+ * @version 0.1.0
+ * 
  */
 public class AnalyticsController implements IAnalyticsController {
 
-	List<String> myList;
-	TreeMap<String, Integer> symptomsMap;
+	/**
+	 * An arrayList that contain symptoms
+	 * 
+	 * @see AnalyticsController#requestGetList(String)
+	 */
+	private List<String> myList;
+
+	/**
+	 * A TreeMap that contain the occurrences of symptoms
+	 * 
+	 * @see AnalyticsController#requestCopyToMap(List)
+	 */
+	private TreeMap<String, Integer> symptomsMap;
 
 	/**
 	 * method that contain calls to requests methods of the classes services
+	 * 
 	 */
 	public void requestSymptoms() {
 
@@ -32,11 +50,11 @@ public class AnalyticsController implements IAnalyticsController {
 	/**
 	 * Request to the class service ReadSymptomDataFromFile
 	 * 
-	 * class that read a file. and add to a ArrayList
+	 * class that read a file and add to a ArrayList
 	 * 
 	 * @param filepath path of the file
 	 * 
-	 * @return a ArrayList.
+	 * @return a ArrayList with symptoms
 	 */
 
 	@Override
@@ -59,10 +77,10 @@ public class AnalyticsController implements IAnalyticsController {
 	 */
 
 	@Override
-	public TreeMap<String, Integer> requestCopyToMap(List<String> myList) {
+	public TreeMap<String, Integer> requestCopyToMap(List<String> mySymptomList) {
 
 		CopySymptomsToMap myCopy = new CopySymptomsToMap();
-		symptomsMap = myCopy.copyToMap(myList);
+		symptomsMap = myCopy.copyToMap(mySymptomList);
 
 		return symptomsMap;
 	}
@@ -70,7 +88,7 @@ public class AnalyticsController implements IAnalyticsController {
 	/**
 	 * Request to the class service WriteToFileResultOut.
 	 * 
-	 * class that copy a TreeMap to a file.
+	 * that copy the occurrences of symptoms to a file.
 	 * 
 	 * @param symptomsMap a TreeMap with symptoms.
 	 * 

@@ -5,11 +5,16 @@ import java.util.List;
 import java.util.TreeMap;
 
 /**
- * A class that copy the symptoms to a TreeMap to obtain the symptoms in
- * alphabetic order and them occurrences. and that implement ICopyToMap
- * Interface.
+ * A class that copy the symptoms to a TreeMap .
+ * 
+ * to obtain the symptoms in alphabetic order and them occurrences and that
+ * implement ICopyToMap Interface.
+ * 
+ * @see ICopyToMap
  * 
  * @author Christine Dos Santos Duarte
+ * 
+ * @version 0.1.0
  * 
  */
 public class CopySymptomsToMap implements ICopyToMap {
@@ -21,8 +26,8 @@ public class CopySymptomsToMap implements ICopyToMap {
 	 * @param mySymptomList a List passed to the method that may contain many
 	 *                      duplication.
 	 * 
-	 * @return a TreeMap with symptoms sort in alphabetic order with the occurrences
-	 *         of them.
+	 * @return a TreeMap with symptoms sorted in alphabetic order with the
+	 *         occurrences of them.
 	 * 
 	 */
 
