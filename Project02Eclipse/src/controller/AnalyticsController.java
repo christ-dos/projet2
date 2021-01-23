@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.util.List;
 import java.util.TreeMap;
@@ -75,7 +75,6 @@ public class AnalyticsController implements IAnalyticsController {
 	 * 
 	 * @return a TreeMap with the occurrences of symptoms.
 	 */
-
 	@Override
 	public TreeMap<String, Integer> requestCopyToMap(List<String> mySymptomList) {
 
@@ -99,8 +98,6 @@ public class AnalyticsController implements IAnalyticsController {
 
 		WriteToFileResultOut writer = new WriteToFileResultOut(fileOutPath);
 		writer.copyToFile(symptomsMap);
-
-		System.out.println(symptomsMap);
 
 	}
 

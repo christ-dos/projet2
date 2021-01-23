@@ -1,16 +1,16 @@
-package laucher;
+package com.hemebiotech.analytics;
 
-import Controller.AnalyticsController;
+import controller.AnalyticsController;
 
 /**
- * Class that launch the application
+ * Class that start the application
  * 
  * @author Christine Dos Santos Duarte
  * 
  * @version 0.1.0
  *
  */
-public class AnalyticsCounterLaucher {
+public class AnalyticsCounterStart {
 
 	/**
 	 * analyticsControl is an instance of AnalyticsController.
